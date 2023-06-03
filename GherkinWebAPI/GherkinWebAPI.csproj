@@ -1,0 +1,1266 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2E8C8872-6F33-48A6-AF65-ACB0A632D871}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GherkinWebAPI</RootNamespace>
+    <AssemblyName>GherkinWebAPI</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44372</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=7.0.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.7.0.1\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="GherkinContext">
+      <HintPath>GherkinContext\GherkinContext.dll</HintPath>
+    </Reference>
+    <Reference Include="GherkinLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.GService\GherkinLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Extensions.Configuration.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileProviders.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.FileProviders.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.FileProviders.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Options.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.JsonWebTokens, Version=6.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.JsonWebTokens.6.5.0\lib\net461\Microsoft.IdentityModel.JsonWebTokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Logging, Version=6.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Logging.6.5.0\lib\net461\Microsoft.IdentityModel.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens, Version=6.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Tokens.6.5.0\lib\net461\Microsoft.IdentityModel.Tokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Net.Http.Headers, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.Headers.2.2.0\lib\netstandard2.0\Microsoft.Net.Http.Headers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.DebuggerVisualizers, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.7.0\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="Swashbuckle.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cd1bb07a5ac7c7bc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Swashbuckle.Core.5.6.0\lib\net40\Swashbuckle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.4.5.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=6.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.6.5.0\lib\net461\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Memory, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.1\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Text.Encodings.Web, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.4.5.0\lib\netstandard2.0\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Cors, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.7\lib\net45\System.Web.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http.Cors, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.7\lib\net45\System.Web.Http.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.7\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Twilio">
+      <HintPath>..\packages\Microsoft.GService\Twilio.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Abstractions, Version=5.11.3.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.11.3\lib\net47\Unity.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Container, Version=5.11.5.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.11.3\lib\net47\Unity.Container.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.WebApi, Version=5.4.0.0, Culture=neutral, PublicKeyToken=43da31bc42a85347, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.WebAPI.5.4.0\lib\net45\Unity.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\SwaggerConfig.cs" />
+    <Compile Include="App_Start\UnityConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Automapper\AutoMapperProfile.cs" />
+    <Compile Include="Controllers\AccountManagementController.cs" />
+    <Compile Include="Controllers\AccountsMaster\AccountsGroupController.cs" />
+    <Compile Include="Controllers\AccountsMaster\AccountsMasterController.cs" />
+    <Compile Include="Controllers\AdvanceCashIssuedToFarmers\AdvanceCashIssuedToFarmersController.cs" />
+    <Compile Include="Controllers\AgentsGreensRecWeighment\AgentsGreensReceivingWeighmentController.cs" />
+    <Compile Include="Controllers\AreaController.cs" />
+    <Compile Include="Controllers\AreaMaterialReceivedDetails\AreaMaterialReceivedDetailsController.cs" />
+    <Compile Include="Controllers\AreaMaterialReceivedDetails\AreaMRInwardDetailsController.cs" />
+    <Compile Include="Controllers\AttendanceDetails\AttendanceController.cs" />
+    <Compile Include="Controllers\BankAccount\BankAccountDetailsController.cs" />
+    <Compile Include="Controllers\BatchProduction\BatchProductionPreparationController.cs" />
+    <Compile Include="Controllers\BranchIndent\BranchIndentController.cs" />
+    <Compile Include="Controllers\BuyingStaffDetails\BuyingStaffDetailsController.cs" />
+    <Compile Include="Controllers\ConsigneeBuyers\ConsigneeBuyersController.cs" />
+    <Compile Include="Controllers\Contractor\ContractorController.cs" />
+    <Compile Include="Controllers\CullingDetails\CullingDetailsController.cs" />
+    <Compile Include="Controllers\DailyHarvestDetails\DailyHarvestController.cs" />
+    <Compile Include="Controllers\DailyInputAndFeedingDetails\DailyInputController.cs" />
+    <Compile Include="Controllers\DailyInputAndFeedingDetails\InputIssuesController.cs" />
+    <Compile Include="Controllers\DriverDetails\DriverDetailController.cs" />
+    <Compile Include="Controllers\FarmerAccountDetailsFinalization\FarmerAccountDetailsFinalizationController.cs" />
+    <Compile Include="Controllers\FarmersInputRatesSeasonWise\FarmersInputRatesSeasonWiseController.cs" />
+    <Compile Include="Controllers\Employee\EmployeeBankDetailsController.cs" />
+    <Compile Include="Controllers\ECISRates\ECISController.cs" />
+    <Compile Include="Controllers\Employee\EmployeeController.cs" />
+    <Compile Include="Controllers\FarmersInputReturns\FarmersInputReturnsController.cs" />
+    <Compile Include="Controllers\FeedInputTransfer\FeedInputTransferController.cs" />
+    <Compile Include="Controllers\FieldStaffDetails\FieldStaffDetailsController.cs" />
+    <Compile Include="Controllers\FinishedSFOpeningStockDetails\FinishedSFOpeningStockController.cs" />
+    <Compile Include="Controllers\GradingWeight\GradingWeightController.cs" />
+    <Compile Include="Controllers\GreenReception\GreenReceptionQualityController.cs" />
+    <Compile Include="Controllers\GreensAgentSupplierDetails\GreensAgentSupplierController.cs" />
+    <Compile Include="Controllers\GreensTransportVehicleSchedules\GreensTransportVehicleScheduleController.cs" />
+    <Compile Include="Controllers\GRNAndMaterialClassification\HarvestGRNController.cs" />
+    <Compile Include="Controllers\HarvestDetailsWeightment\HarvestGRNWeightmentController.cs" />
+    <Compile Include="Controllers\HarvestDetails\HarvestDetailsController.cs" />
+    <Compile Include="Controllers\InputToFieldStaff\InputToFieldStaffController.cs" />
+    <Compile Include="Controllers\LoansAndAdvances\LoansAdvancesController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\GoodsReceiptNote\GoodsReceiptNoteController.cs" />
+    <Compile Include="Controllers\ManualAttendence\ManualAttendenceController.cs" />
+    <Compile Include="Controllers\MaterialIndentByDepartment\MaterialIndentByDepartmentController.cs" />
+    <Compile Include="Controllers\MaterialInward\MaterialIwardController.cs" />
+    <Compile Include="Controllers\GRPAndroid\ProdProcessBOM\ProdProcessBOMController.cs" />
+    <Compile Include="Controllers\MaterialOutward\MaterialOutwardController.cs" />
+    <Compile Include="Controllers\MediaBatchDetails\InterfaceController.cs" />
+    <Compile Include="Controllers\MediaBatchDetails\MediaBatchController.cs" />
+    <Compile Include="Controllers\Overseas\CurrencyController.cs" />
+    <Compile Include="Controllers\PackageofPractice\PackageofPracticeController.cs" />
+    <Compile Include="Controllers\PingController.cs" />
+    <Compile Include="Controllers\PlantationHarvest\MandalController.cs" />
+    <Compile Include="Controllers\PlantationHarvest\HarvestStageController.cs" />
+    <Compile Include="Controllers\ProfessionalTaxRates\ProfessionalTaxRatesController.cs" />
+    <Compile Include="Controllers\ProformaInvoiceDetails\ProformaInvoiceDetailsController.cs" />
+    <Compile Include="Controllers\ProvidentFund\ProvidentFundRateDetailsController.cs" />
+    <Compile Include="Controllers\Reports\DepAndDes\DepartmentAndDesignationReportController.cs" />
+    <Compile Include="Controllers\Reports\DialyAttendanceReport\DialyAttendanceReportController.cs" />
+    <Compile Include="Controllers\Reports\DialyGreensReceiving\DialyGreensReceivingReportController.cs" />
+    <Compile Include="Controllers\Reports\FarmerWiseSummary\FarmerWiseSummaryReportController.cs" />
+    <Compile Include="Controllers\Reports\GreensReceiptsSummary\GreensReceiptsSummaryController.cs" />
+    <Compile Include="Controllers\Reports\InwardDetails\InWardDetailsController.cs" />
+    <Compile Include="Controllers\Reports\MonthlyAttendanceReport2\MonthlyAttendanceReport2Controller.cs" />
+    <Compile Include="Controllers\ScheduleDetail\ScheduleDetailController.cs" />
+    <Compile Include="Controllers\ShiftDetails\ShiftDetailsController.cs" />
+    <Compile Include="Controllers\SowingFarming\SowingFarmingController.cs" />
+    <Compile Include="Controllers\StoresMasterDetails\StoresMasterDetailsController.cs" />
+    <Compile Include="Controllers\TransportVehicleManagement\GpsTrackingDeviceController.cs" />
+    <Compile Include="Controllers\TransportVehicleManagement\HiredTransporterDetailsController.cs" />
+    <Compile Include="Controllers\TransportVehicleManagement\VehicleController.cs" />
+    <Compile Include="Controllers\YearlyHolidayDetails\YearlyHolidayDetailsController.cs" />
+    <Compile Include="Core\AdvanceCashIssuedToFarmers\IAdvCashIssuedToFarmrRepository.cs" />
+    <Compile Include="Core\AdvanceCashIssuedToFarmers\IAdvCashIssuedToFarmrService.cs" />
+    <Compile Include="Core\AgentsGreensRecWeighment\IAgentsGreensReceivingWeighmentRepository.cs" />
+    <Compile Include="Core\AgentsGreensRecWeighment\IAgentsGreensReceivingWeighmentService.cs" />
+    <Compile Include="Core\AreaMaterialReceivedDetails\IAreaMaterialReceivedService.cs" />
+    <Compile Include="Core\AreaMaterialReceivedDetails\IAreaMaterialReceivedRepository.cs" />
+    <Compile Include="Core\AreaMaterialReceivedDetails\IAreaMRInwardService.cs" />
+    <Compile Include="Core\AreaMaterialReceivedDetails\IAreaMRInwardRepository.cs" />
+    <Compile Include="Core\AttendanceDetails\IAttendanceRepository.cs" />
+    <Compile Include="Core\AttendanceDetails\IAttendanceService.cs" />
+    <Compile Include="Core\BankAccount\IBankAccountDetailsRepository.cs" />
+    <Compile Include="Core\BankAccount\IBankAccountDetailsService.cs" />
+    <Compile Include="Controllers\PurchageMgmt\PurchageManagementController.cs" />
+    <Compile Include="Core\Accounts_Master\IAccountMasterRepository.cs" />
+    <Compile Include="Core\Accounts_Master\IAccountMasterService.cs" />
+    <Compile Include="Core\Accounts_Master\IAccountsGroupRepository.cs" />
+    <Compile Include="Core\Accounts_Master\IAccountsGroupService.cs" />
+    <Compile Include="Core\BatchProduction\IBatchProductionPreparationRepository.cs" />
+    <Compile Include="Core\BatchProduction\IBatchProductionPreparationService.cs" />
+    <Compile Include="Core\BranchIndent\IBranchIndentRepository.cs" />
+    <Compile Include="Core\BranchIndent\IBranchIndentService.cs" />
+    <Compile Include="Core\BuyingStaffDetails\IBuyingStaffDetailsRepository.cs" />
+    <Compile Include="Core\BuyingStaffDetails\IBuyingStaffDetailsService.cs" />
+    <Compile Include="Core\Contractor\IContractorRepository.cs" />
+    <Compile Include="Core\Contractor\IContractorService.cs" />
+    <Compile Include="Core\CullingDetails\ICullingDetailsRepository.cs" />
+    <Compile Include="Core\Currencys\ICurrencyRepositroy.cs" />
+    <Compile Include="Core\Currencys\ICurrencyService.cs" />
+    <Compile Include="Core\DailyHarvestDetails\IDailyHarvestRepository.cs" />
+    <Compile Include="Core\DailyHarvestDetails\IDailyHarvestService.cs" />
+    <Compile Include="Core\DailyInputAndFeedingDetails\IDailyInputRepository.cs" />
+    <Compile Include="Core\DailyInputAndFeedingDetails\IDailyInputService.cs" />
+    <Compile Include="Core\DriverDetail\IDriverDetailService.cs" />
+    <Compile Include="Core\DriverDocuments\IDriverDocumentService.cs" />
+    <Compile Include="Core\DriverDocuments\IDriverDocumentRepository.cs" />
+    <Compile Include="Core\EmployeeBankDetails\IEmployeeBankDetailsMasterRepository.cs" />
+    <Compile Include="Core\EmployeeBankDetails\IEmployeeBankDetailsMasterService.cs" />
+    <Compile Include="Core\FarmerAccountDetailsFinalization\IFarmerAccountDetailsFinalizationRepository.cs" />
+    <Compile Include="Core\FarmerAccountDetailsFinalization\IFarmerAccountDetailsFinalizationService.cs" />
+    <Compile Include="Core\FarmersInputRatesSeasonWise\IFarmersInputRatesSeasonWiseRepository.cs" />
+    <Compile Include="Core\FarmersInputRatesSeasonWise\IFarmersInputRatesSeasonWiseService.cs" />
+    <Compile Include="Core\FarmersInputReturns\IFarmersInputReturnsRepository.cs" />
+    <Compile Include="Core\FarmersInputReturns\IFarmersInputReturnsService.cs" />
+    <Compile Include="Core\FeedInputTransfer\IFeedInputTransferRepository.cs" />
+    <Compile Include="Core\FeedInputTransfer\IFeedInputTransferService.cs" />
+    <Compile Include="Core\DailyInputAndFeedingDetails\IInputIssuesRepository.cs" />
+    <Compile Include="Core\DailyInputAndFeedingDetails\IInputIssuesService.cs" />
+    <Compile Include="Core\FinishedSFOpeningStockDetails\IFinishedSFOpeningStockRepository.cs" />
+    <Compile Include="Core\FinishedSFOpeningStockDetails\IFinishedSFOpeningStockService.cs" />
+    <Compile Include="Core\GradingWeight\IGradingWeightService.cs" />
+    <Compile Include="Core\GradingWeight\IGradingWeightRepository.cs" />
+    <Compile Include="Core\GreenReption\IGreenReceptionQualityRepository.cs" />
+    <Compile Include="Core\GreenReption\IGreenReceptionQualityService.cs" />
+    <Compile Include="Core\GreensAgentSupplierDetails\IGreensAgentSupplierDetailsRepository.cs" />
+    <Compile Include="Core\GreensAgentSupplierDetails\IGreensAgentSupplierDetailsService.cs" />
+    <Compile Include="Core\GreensTransportVehicleSchedules\IGreensTransportVehicleScheduleRepository.cs" />
+    <Compile Include="Core\GreensTransportVehicleSchedules\IGreensTransportVehicleScheduleService.cs" />
+    <Compile Include="Core\GRNAndMaterialClassification\IHarvestGRNCrateRepository.cs" />
+    <Compile Include="Core\GRNAndMaterialClassification\IHarvestGRNCrateService.cs" />
+    <Compile Include="Core\GRNAndMaterialClassification\IHarvestGRNFarmerRepository.cs" />
+    <Compile Include="Core\GRNAndMaterialClassification\IHarvestGRNFarmerService.cs" />
+    <Compile Include="Core\GRNAndMaterialClassification\IHarvestGRNRepository.cs" />
+    <Compile Include="Core\GRNAndMaterialClassification\IHarvestGRNService.cs" />
+    <Compile Include="Core\GRPAndroid\ProdProcessBOM\IProdProcessBOMRepository.cs" />
+    <Compile Include="Core\GRPAndroid\ProdProcessBOM\IProdProcessBOMService.cs" />
+    <Compile Include="Core\GoodsReceiptNote\IGRNMaterialRepository.cs" />
+    <Compile Include="Core\GoodsReceiptNote\IGRNMaterialService.cs" />
+    <Compile Include="Core\GoodsReceiptNote\IGRNRepository.cs" />
+    <Compile Include="Core\GoodsReceiptNote\IGRNService.cs" />
+    <Compile Include="Core\GoodsReceiptNote\IMaterialTotalCostRepository.cs" />
+    <Compile Include="Core\GoodsReceiptNote\IMaterialTotalCostService.cs" />
+    <Compile Include="Core\HarvestDetailsWeightment\IHarvestGRNWeightmentDetailsRepository.cs" />
+    <Compile Include="Core\HarvestDetailsWeightment\IHarvestGRNWeightmentDetailsService.cs" />
+    <Compile Include="Core\CullingDetails\ICullingDetailsService.cs" />
+    <Compile Include="Core\HarvestDetails\IHarvestDetailsRepository.cs" />
+    <Compile Include="Core\HarvestDetails\IHarvestDetailsService.cs" />
+    <Compile Include="Core\HarvestStage\HarvestStageService.cs" />
+    <Compile Include="Core\HarvestStage\IHarvestStageRepository.cs" />
+    <Compile Include="Core\HarvestStage\IHarvestStageService.cs" />
+    <Compile Include="Core\FieldStaffDetails\IFieldStaffDetailsRepository.cs" />
+    <Compile Include="Core\FieldStaffDetails\IFieldStaffDetailsService.cs" />
+    <Compile Include="Core\ESIC\IESICRepository.cs" />
+    <Compile Include="Core\ESIC\IESICService.cs" />
+    <Compile Include="Core\InputToFieldStaff\IInputToFieldStaffRepository.cs" />
+    <Compile Include="Core\InputToFieldStaff\IInputToFieldStaffService.cs" />
+    <Compile Include="Core\LoansAndAdvancesDetails\ILoansAdvancesRepository.cs" />
+    <Compile Include="Core\LoansAndAdvancesDetails\ILoansAdvancesService.cs" />
+    <Compile Include="Core\Login\ILoginService.cs" />
+    <Compile Include="Core\Login\ILoginRepository.cs" />
+    <Compile Include="Core\Mandals\IMandalRepository.cs" />
+    <Compile Include="Core\Mandals\IMandalService.cs" />
+    <Compile Include="Core\ManualAttendence\IManualAttendenceDetailsRepository.cs" />
+    <Compile Include="Core\ManualAttendence\IManualAttendenceMasterRepository.cs" />
+    <Compile Include="Core\ManualAttendence\IManualAttendenceService.cs" />
+    <Compile Include="Core\MaterialIndentByDepartment\IStoreInternalIndentDetailRepository.cs" />
+    <Compile Include="Core\MaterialIndentByDepartment\IStoreInternalIndentMasterRepository.cs" />
+    <Compile Include="Core\MaterialIndentByDepartment\IStoreInternalIndentDetailService.cs" />
+    <Compile Include="Core\MaterialIndentByDepartment\IStoreInternalIndentMasterService.cs" />
+    <Compile Include="Core\MaterialInward\IMaterialRepository.cs" />
+    <Compile Include="Core\MaterialInward\IMaterialService.cs" />
+    <Compile Include="Core\MediaBatchDetails\IInterfaceRepository.cs" />
+    <Compile Include="Core\MediaBatchDetails\IInterfaceService.cs" />
+    <Compile Include="Core\MediaBatchDetails\IMediaBatchRepository.cs" />
+    <Compile Include="Core\MediaBatchDetails\IMediaBatchService.cs" />
+    <Compile Include="Core\MediaProcessDetail\IMediaProcessDetailsRepository.cs" />
+    <Compile Include="Core\MediaProcessDetail\IMediaProcessDetailsService.cs" />
+    <Compile Include="Core\PackageofPractice\IPackageofPracticeRepository.cs" />
+    <Compile Include="Core\PackageofPractice\IPackageOfPracticeService.cs" />
+    <Compile Include="Core\ProfessionalTaxRates\IProfessionalTaxMasterRepository.cs" />
+    <Compile Include="Core\ProfessionalTaxRates\IProfessionalTaxMasterService.cs" />
+    <Compile Include="Core\ProfessionalTaxRates\IProfessionalTaxSlabRepository.cs" />
+    <Compile Include="Core\ProfessionalTaxRates\IProfessionalTaxSlabService.cs" />
+    <Compile Include="Core\ProformaInvoiceDetails\IProformaInvoiceDetailsRepository.cs" />
+    <Compile Include="Core\ProvidentFund\IProvidentFundRateDetailsRepository.cs" />
+    <Compile Include="Core\ProvidentFund\IProvidentFundRateDetailsService.cs" />
+    <Compile Include="Core\Reports\MonthlyAttendance\IMonthlyAttendanceRepository.cs" />
+    <Compile Include="Core\Reports\DailyAttendance\IDialyAttendanceRepository.cs" />
+    <Compile Include="Core\Reports\DepAndDes\IDepartMentAndDesignationRepository.cs" />
+    <Compile Include="Core\Reports\DialyGreensReceiving\IDialyGreensReceivingRepository.cs" />
+    <Compile Include="Core\Reports\FarmerWiseSummary\IFarmerWiseSummaryRepository.cs" />
+    <Compile Include="Core\Reports\GreensReceiptsSummary\IGreensReceiptsSummaryRepository.cs" />
+    <Compile Include="Core\Reports\InWardDailyReport\IHarvestGRNReportRepository.cs" />
+    <Compile Include="Core\Reports\MonthlyAttendance\IMonthlyAttendanceService.cs" />
+    <Compile Include="Core\ScheduleDetail\IScheduleDetailRepository.cs" />
+    <Compile Include="Core\ScheduleDetail\IScheduleDetailService.cs" />
+    <Compile Include="Core\ShiftDetails\IShiftDetailsRepository.cs" />
+    <Compile Include="Core\ShiftDetails\IShiftDetailsService.cs" />
+    <Compile Include="Core\SowingFarming\ISowingFarmingRepository.cs" />
+    <Compile Include="Core\SowingFarming\ISowingFarmingService.cs" />
+    <Compile Include="Core\StoresMasterDetails\IGSCUOMDetailRepository.cs" />
+    <Compile Include="Core\StoresMasterDetails\IGSCUOMDetailService.cs" />
+    <Compile Include="Core\StoresMasterDetails\IGSGroupDetailRepository.cs" />
+    <Compile Include="Core\StoresMasterDetails\IGSGroupDetailService.cs" />
+    <Compile Include="Core\StoresMasterDetails\IGSMaterialDetailRepository.cs" />
+    <Compile Include="Core\StoresMasterDetails\IGSMaterialDetailService.cs" />
+    <Compile Include="Core\StoresMasterDetails\IGSSubGroupDetailRepository.cs" />
+    <Compile Include="Core\StoresMasterDetails\IGSSubGroupDetailService.cs" />
+    <Compile Include="Core\TransportVehicleManagement\IGpsTrackingDeviceRepository.cs" />
+    <Compile Include="Core\TransportVehicleManagement\IGpsTrackingDeviceService.cs" />
+    <Compile Include="Core\TransportVehicleManagement\IHiredTransporterDetailRepository.cs" />
+    <Compile Include="Core\TransportVehicleManagement\IHiredTransporterDetailService.cs" />
+    <Compile Include="Core\TransportVehicleManagement\IHiredVehicleDetailRepository.cs" />
+    <Compile Include="Core\TransportVehicleManagement\IHiredVehicleDetailService.cs" />
+    <Compile Include="Core\TransportVehicleManagement\IHiredVehicleDocumentRepository.cs" />
+    <Compile Include="Core\TransportVehicleManagement\IHiredVehicleDocumentService.cs" />
+    <Compile Include="Core\TransportVehicleManagement\IVehicleRepository.cs" />
+    <Compile Include="Core\TransportVehicleManagement\IVehicleService.cs" />
+    <Compile Include="Core\YearlyHolidayDetails\IYearlyHolidayDetailsRepository.cs" />
+    <Compile Include="Core\YearlyHolidayDetails\IYearlyHolidayDetailsService.cs" />
+    <Compile Include="DTO\AgentsGreensRecWeighment\ActualDetailsDTO.cs" />
+    <Compile Include="DTO\AgentsGreensRecWeighment\ActualWeightDetailsDTO.cs" />
+    <Compile Include="DTO\AgentsGreensRecWeighment\GreensAgentDespCountWeightDetailsDTO.cs" />
+    <Compile Include="DTO\AgentsGreensRecWeighment\GreensAgentReceivedDetailsDTO.cs" />
+    <Compile Include="DTO\AreaMaterialReceivedDetails\AreaMaterialReceivedDetailsDTO.cs" />
+    <Compile Include="DTO\AttendanceDetail\AttendanceDetailSearchDTO.cs" />
+    <Compile Include="DTO\AttendanceDetail\BiometricLogDTO.cs" />
+    <Compile Include="DTO\BankAccount\BankAccountDetailMasterDto.cs" />
+    <Compile Include="DTO\BankAccount\BankAccountDetailsDTO.cs" />
+    <Compile Include="Core\PurchaseMgmt\IPurchageManagementRepository.cs" />
+    <Compile Include="Core\PurchaseMgmt\IPurchageManagementService.cs" />
+    <Compile Include="DTO\BatchProduction\BatchScheduledOrderDto.cs" />
+    <Compile Include="DTO\BranchIndent\BranchIndentDetailsDto.cs" />
+    <Compile Include="DTO\BranchIndent\BranchIndentMaterialDetailsDto.cs" />
+    <Compile Include="DTO\CullingDetails\GradeMaterialDetails.cs" />
+    <Compile Include="DTO\DailyHarvest\BulkGreensInsertDTO.cs" />
+    <Compile Include="DTO\DailyHarvest\GreenFarmerQuanityCrateWiseDTO.cs" />
+    <Compile Include="DTO\DailyHarvest\GreensProcurementsDTO.cs" />
+    <Compile Include="DTO\DailyHarvest\GreensRecievingAllDetails.cs" />
+    <Compile Include="DTO\DailyInputAndFeedingDetails\AreaIdPSNumberDTO.cs" />
+    <Compile Include="DTO\DriverDetail\DriverDetailDTO.cs" />
+    <Compile Include="DTO\FarmerDetails\FarmerDetailsDTO.cs" />
+    <Compile Include="DTO\FarmerDTO.cs" />
+    <Compile Include="DTO\FarmersAccountSettlementDetail\FarmerAccountSettlementSearchDTO.cs" />
+    <Compile Include="DTO\FeedInputTransfer\HBOMDetailsDto.cs" />
+    <Compile Include="DTO\FieldStaffDetails\FieldStaffDTO.cs" />
+    <Compile Include="DTO\FieldStaffDetails\HarvestAreaFieldStaffDTO.cs" />
+    <Compile Include="DTO\FinishedSFOpeningStockDetails\ConsigneeBuyersDto.cs" />
+    <Compile Include="DTO\FinishedSFOpeningStockDetails\OrganisationOfficenitDetailsDto.cs" />
+    <Compile Include="DTO\FinishedSFOpeningStockDetails\ProformaInvoiceDto.cs" />
+    <Compile Include="DTO\GradingWeight\GreensGradingQuantityDetailsDTO.cs" />
+    <Compile Include="DTO\GRNAndMaterialClassification\GreensRecievedDetailDTO.cs" />
+    <Compile Include="DTO\GRNAndMaterialClassification\HarvestBuyerWeighingDetailsDTO.cs" />
+    <Compile Include="DTO\GRNAndMaterialClassification\HarvestGRNCountWeightDetailsDTO.cs" />
+    <Compile Include="DTO\HarvestDetailsWeightment\GradeDTO.cs" />
+    <Compile Include="DTO\HarvestDetailsWeightment\GreensReceptionDetailsDTO.cs" />
+    <Compile Include="DTO\HarvestDetailsWeightment\HarvestGRNWeighmentDetailsDTO.cs" />
+    <Compile Include="DTO\BatchProduction\BatchGreenDetailsDto.cs" />
+    <Compile Include="DTO\HarvestDetailsWeightment\InwardDetailsDTO.cs" />
+    <Compile Include="DTO\HarvestDetailsWeightment\SummaryReceivingDetailsDTO.cs" />
+    <Compile Include="DTO\HarvestDetailsWeightment\SummaryWeighmentDetailsDTO.cs" />
+    <Compile Include="DTO\HarvestDetails\FarmerDetailsDto.cs" />
+    <Compile Include="DTO\HarvestDetails\GreensQuantityCratewiseDetailDTO.cs" />
+    <Compile Include="DTO\HarvestDetails\GreenFarmerDetailDto.cs" />
+    <Compile Include="DTO\HarvestDetails\HarvestDetailsDto.cs" />
+    <Compile Include="DTO\MaterialInward\MaterialInwardDto.cs" />
+    <Compile Include="DTO\MediaProcessDetail\MediaProcessDetailsDTO.cs" />
+    <Compile Include="DTO\PackageofpracticeDto\PackageofPracticeMaterialsDto.cs" />
+    <Compile Include="DTO\ProductGradeDto\ProductGroupDto.cs" />
+    <Compile Include="DTO\ProformaInvoiceDetail\ProductDetailsDto.cs" />
+    <Compile Include="DTO\ProvidentFund\ProvidentFundRateDetailsDTO.cs" />
+    <Compile Include="DTO\PurchageMgmt\CreatePOWithMaterialAndCondition.cs" />
+    <Compile Include="DTO\PurchageMgmt\CreatePurchageReturn.cs" />
+    <Compile Include="DTO\Reports\DepAndDes\DepAndDesDto.cs" />
+    <Compile Include="DTO\Reports\MonthlyAttendance\MonthlyAttendanceDto.cs" />
+    <Compile Include="DTO\Reports\DialyAttendance\DialyAttendanceDto.cs" />
+    <Compile Include="DTO\Reports\DialyGreensReceiving\DialyGreensReceivingForBuyersDto.cs" />
+    <Compile Include="DTO\Reports\GreensReceiptsSummary\FirstDataFromGreenTransportAndGreensProcurements.cs" />
+    <Compile Include="DTO\Reports\GreensReceiptsSummary\GreensReceiptsSummaryReportDataDto.cs" />
+    <Compile Include="DTO\Reports\InWardDailyReport\InwardDetailRequest.cs" />
+    <Compile Include="DTO\Reports\InWardDailyReport\InWardDetailsReportData.cs" />
+    <Compile Include="DTO\RMStock\RMStockBranchDto.cs" />
+    <Compile Include="DTO\RMStock\RMStockBranchQuantityDetailDTO.cs" />
+    <Compile Include="DTO\ScheduleDetail\ScheduleDetailDTO.cs" />
+    <Compile Include="DTO\ShiftDetails\ShiftDetailsDto.cs" />
+    <Compile Include="DTO\SowingFarming\HarvestDataForSowingFarrmingDto.cs" />
+    <Compile Include="DTO\SowingFarming\HBOMPracticeForSowingFarming.cs" />
+    <Compile Include="DTO\SowingSessionDto.cs" />
+    <Compile Include="DTO\SupplierDetailsDto.cs" />
+    <Compile Include="DTO\HarvestStage\HarvestStageDetailDto.cs" />
+    <Compile Include="DTO\HarvestStage\HarvestStageMasterDto.cs" />
+    <Compile Include="DTO\PackageofpracticeDto\PackageofPracticeDivisionDto.cs" />
+    <Compile Include="DTO\PackageofpracticeDto\PackageofPracticeMasterDto.cs" />
+    <Compile Include="DTO\SupplierDocumentsDto.cs" />
+    <Compile Include="DTO\YearlyHolidayDetails\StatutoryHolidaysDTO.cs" />
+    <Compile Include="DTO\YearlyHolidayDetails\WeeklyHolidaysDTO.cs" />
+    <Compile Include="DTO\YearlyHolidayDetails\YearlyCalendarDTO.cs" />
+    <Compile Include="Models\AdvanceCashIssuedToFarmers\AdvanceCashIssuedToFarmers.cs" />
+    <Compile Include="Models\AgentsGreensRecWeighment\AgentsGreensReceivingWeighment.cs" />
+    <Compile Include="Models\AgentsGreensRecWeighment\GreensAgentActualWeightDetails.cs" />
+    <Compile Include="Models\AgentsGreensRecWeighment\GreensAgentDespCountWeightDetails.cs" />
+    <Compile Include="Models\AgentsGreensRecWeighment\AgentsGrnRecivWeignmentDTO.cs" />
+    <Compile Include="Models\AgentsGreensRecWeighment\GreensAgentGradesActualDetails.cs" />
+    <Compile Include="Models\AttendanceDetails\Attendance.cs" />
+    <Compile Include="Models\AttendanceDetails\AttendanceRequestmodel.cs" />
+    <Compile Include="Models\AttendanceDetails\AttendanceSalaryDetailsRequest.cs" />
+    <Compile Include="Models\AttendanceDetails\AttendanceSummaryDetails.cs" />
+    <Compile Include="Models\AttendanceDetails\BiometricUserLog.cs" />
+    <Compile Include="Models\AttendanceDetails\MonthlyEmployeesSalariesFinalization.cs" />
+    <Compile Include="Models\AttendanceDetails\MonthlyEmployerContributions.cs" />
+    <Compile Include="Models\BatchProduction\BatchProductionDetails.cs" />
+    <Compile Include="Models\BatchProduction\BatchScheduleDrumsBarcodeDetails.cs" />
+    <Compile Include="Models\BuyingStaffDetails\HarvestAreaBuyingStaffDetails.cs" />
+    <Compile Include="Models\ContainerPackingDetails.cs" />
+    <Compile Include="Models\DailyHarvestDetails\BuyerSchedule.cs" />
+    <Compile Include="Models\DailyHarvestDetails\GreensFarmersDetail.cs" />
+    <Compile Include="Models\DailyHarvestDetails\GreensProcurement.cs" />
+    <Compile Include="Models\DailyHarvestDetails\GreensQuantityCountwiseDetail.cs" />
+    <Compile Include="Models\DailyHarvestDetails\GreensQuantityCratewiseDetail.cs" />
+    <Compile Include="Models\DriverDetail\DriverDetail.cs" />
+    <Compile Include="Models\DriverDetail\DriverDTO.cs" />
+    <Compile Include="Models\Employee\EmployeeAttendanceUpdatedDetails.cs" />
+    <Compile Include="Models\FarmersAccountSettlementDetail\FarmersAccountSettlementDetail.cs" />
+    <Compile Include="Models\FarmersInputRatesSeasonWise\FarmersInputRatesSeasonWise.cs" />
+    <Compile Include="Models\FarmersInputReturns\FarmerAndVillage.cs" />
+    <Compile Include="Models\FarmersInputReturns\FarmersInputsMaterialDetail.cs" />
+    <Compile Include="Models\FarmersInputReturns\FarmersInputsMaterialMaster.cs" />
+    <Compile Include="Models\FarmersInputReturns\FieldStaffCropGroupSeason.cs" />
+    <Compile Include="Models\FarmersInputReturns\SeasonFromTo.cs" />
+    <Compile Include="Models\Farmers\FarmerBankDetails.cs" />
+    <Compile Include="Models\DriverDocument\DriverDocument.cs" />
+    <Compile Include="Models\FinishedSFOpeningStockDetails\FinishedSFStockProductDetails.cs" />
+    <Compile Include="Models\FinishedSFOpeningStockDetails\FinishedSFStockQuantityDetails.cs" />
+    <Compile Include="Models\GoodsReceiptNote\BatchMaterialDetails.cs" />
+    <Compile Include="Models\GreensAgentSupplierDetails\AgentBankDetails.cs" />
+    <Compile Include="Models\GreensAgentSupplierDetails\AgentOrgDocuments.cs" />
+    <Compile Include="Models\GreensAgentSupplierDetails\SupplierInformationDetails.cs" />
+    <Compile Include="Models\GreensTransportVehicleSchedules\GreensTransportMaterialDetail.cs" />
+    <Compile Include="Models\GreensTransportVehicleSchedules\GreensTransportVechicleScheduleDetail.cs" />
+    <Compile Include="Models\GreensTransportVehicleSchedules\GreensTransportVehicleSchedule.cs" />
+    <Compile Include="Models\GreensTransportVehicleSchedules\ReturnableGatePassDetail.cs" />
+    <Compile Include="Models\GRNAndMaterialClassification\CWHarvestBuyerWeighingDetails.cs" />
+    <Compile Include="Models\GRNAndMaterialClassification\CWHarvestGRNCountWeightDetails.cs" />
+    <Compile Include="Models\GRNAndMaterialClassification\CWHarvestGRNWeightSummaryDetails.cs" />
+    <Compile Include="Models\GRNAndMaterialClassification\VehicleDetails.cs" />
+    <Compile Include="Models\GSCUomDetails.cs" />
+    <Compile Include="Models\HarvestStage\EffectiveDateForHarvestDetails.cs" />
+    <Compile Include="Models\HumanResource\EmployeeAttendanceDetails.cs" />
+    <Compile Include="Models\InputToFieldStaff\InputsIssuedToFieldstaffDetails.cs" />
+    <Compile Include="Models\InputToFieldStaff\InputsIssuedToFieldstaffMaterials.cs" />
+    <Compile Include="Models\InputToFieldStaff\InputToFieldStaffModel.cs" />
+    <Compile Include="Models\LoansAndAdvancesDetails\LoansAdvancesDetail.cs" />
+    <Compile Include="Models\LoansAndAdvancesDetails\LoansAdvancesDTO.cs" />
+    <Compile Include="Models\Login\Role.cs" />
+    <Compile Include="Models\ManualAttendence\ManualAttendenceDetails.cs" />
+    <Compile Include="Models\ManualAttendence\ManualAttendenceDto.cs" />
+    <Compile Include="Models\ManualAttendence\ManualAttendenceMaster.cs" />
+    <Compile Include="Models\MaterialIndentByDepartment\StoreInternalIndentDetail.cs" />
+    <Compile Include="Models\MaterialIndentByDepartment\StoreInternalIndentMaster.cs" />
+    <Compile Include="Models\MediaBatchDetails\MediaBatchProductionAndMaterialDetails.cs" />
+    <Compile Include="Models\MediaBatchDetails\MediaStockAndBatchDetail.cs" />
+    <Compile Include="Models\SalaryComputation\SalaryComputationDetails.cs" />
+    <Compile Include="Models\StoresMasterDetails\GSGroupDetail.cs" />
+    <Compile Include="Models\StoresMasterDetails\GSMaterialDetail.cs" />
+    <Compile Include="Models\StoresMasterDetails\GSSubGroupDetail.cs" />
+    <Compile Include="Models\TransportVehicleManagement\GPSTrackingDevices.cs" />
+    <Compile Include="Models\TransportVehicleManagement\OwnVehiclesDetails.cs" />
+    <Compile Include="Models\TransportVehicleManagement\OwnVehicleDocuments.cs" />
+    <Compile Include="Models\TransportVehicleManagement\HiredTransporterDetail.cs" />
+    <Compile Include="Models\TransportVehicleManagement\HiredVehicleDetail.cs" />
+    <Compile Include="Models\TransportVehicleManagement\HiredVehicleDocument.cs" />
+    <Compile Include="Models\YearlyHolidayDetails\StatutoryHolidays.cs" />
+    <Compile Include="Models\YearlyHolidayDetails\WeekDays.cs" />
+    <Compile Include="Models\YearlyHolidayDetails\WeeklyHolidays.cs" />
+    <Compile Include="Models\YearlyHolidayDetails\YearlyCalendar.cs" />
+    <Compile Include="Entities\BranchIndent\BranchIndentDetails.cs" />
+    <Compile Include="Entities\BranchIndent\BranchIndentMaterialDetails.cs" />
+    <Compile Include="Entities\HarvestStage\HarvestStageDetails.cs" />
+    <Compile Include="Entities\HarvestStage\HarvestStageMaster.cs" />
+    <Compile Include="Entities\MaterialInward\MaterialInwardEntity.cs" />
+    <Compile Include="Entities\RMStock\RMStockBranchQuantityDetails.cs" />
+    <Compile Include="Entities\SowingFarming\FarmingStageDetails.cs" />
+    <Compile Include="Entities\SowingFarming\SowingFarmingDetails.cs" />
+    <Compile Include="Filter\RoleAuthorizeAttribute.cs" />
+    <Compile Include="Filter\GherkinwebapiAuth.cs" />
+    <Compile Include="Models\AreaMaterial\AreaMaterialReceivedDetails.cs" />
+    <Compile Include="Models\AreaMaterial\AreaMRInwardDetails.cs" />
+    <Compile Include="Models\AreaMaterial\ARMaterialOutwadDetailsDTO.cs" />
+    <Compile Include="Models\BankAccount\BankAccountClose.cs" />
+    <Compile Include="Models\BankAccount\BankAccountDetails.cs" />
+    <Compile Include="Models\Accounts_Master\AccountHeadMaster.cs" />
+    <Compile Include="Models\Accounts_Master\AccountMaster.cs" />
+    <Compile Include="Models\Accounts_Master\AccountsGroup.cs" />
+    <Compile Include="Models\Accounts_Master\AccountsGroupMaster.cs" />
+    <Compile Include="Models\Accounts_Master\AccountsMaster.cs" />
+    <Compile Include="Models\Accounts_Master\AccountsSubGroupMaster.cs" />
+    <Compile Include="Models\BatchProduction\BatchScheduleDetails.cs" />
+    <Compile Include="Models\BatchProduction\BatchScheduleDummyProduction.cs" />
+    <Compile Include="Models\BatchProduction\BatchScheduleGreensGRNDetails.cs" />
+    <Compile Include="Models\BatchProduction\BatchScheduleOrderProduction.cs" />
+    <Compile Include="Models\Branch Indent\BranchIndentDetailsModel.cs" />
+    <Compile Include="Models\Branch Indent\BranchIndentMaterialDetailsModel.cs" />
+    <Compile Include="Models\Contractor\Contractor.cs" />
+    <Compile Include="Controllers\Crops\CropController.cs" />
+    <Compile Include="Controllers\Department\DepartmentController.cs" />
+    <Compile Include="Controllers\Designation\DesignationController.cs" />
+    <Compile Include="Controllers\CropRate\CropRateController.cs" />
+    <Compile Include="Controllers\Farmers\FarmerController.cs" />
+    <Compile Include="Controllers\FarmersAgreement\FarmersAgreementController.cs" />
+    <Compile Include="Controllers\Organisation\OrganisationController.cs" />
+    <Compile Include="Controllers\Overseas\CityOverseasController.cs" />
+    <Compile Include="Controllers\Overseas\CountryOverseasController.cs" />
+    <Compile Include="Controllers\PlantationHarvest\PlaceController.cs" />
+    <Compile Include="Controllers\Overseas\StateOverseasController.cs" />
+    <Compile Include="Controllers\PlantationHarvest\PlantationHarvestController.cs" />
+    <Compile Include="Controllers\PlantationHarvest\CountryController.cs" />
+    <Compile Include="Controllers\PlantationHarvest\DistrictController.cs" />
+    <Compile Include="Controllers\PlantationHarvest\HarvestAreaController.cs" />
+    <Compile Include="Controllers\PlantationHarvest\HarvestAreaVillageController.cs" />
+    <Compile Include="Controllers\PlantationHarvest\StateController.cs" />
+    <Compile Include="Controllers\PlantationHarvest\VillageController.cs" />
+    <Compile Include="Controllers\ProductGrade\ProductDetailsController.cs" />
+    <Compile Include="Controllers\RMStock\RMStockController.cs" />
+    <Compile Include="Controllers\Skills\SkillInformationController.cs" />
+    <Compile Include="Controllers\Department\SubdepartmentController.cs" />
+    <Compile Include="Core\Country\ICountryRepository.cs" />
+    <Compile Include="Core\Country\ICountryService.cs" />
+    <Compile Include="Core\Farmers\IFarmerRepository.cs" />
+    <Compile Include="Core\Farmers\IFarmerService.cs" />
+    <Compile Include="Core\Harvest_Area\IHarvestAreaRepository.cs" />
+    <Compile Include="Core\Harvest_Area\IHarvestAreaService.cs" />
+    <Compile Include="Core\Harvest_Area_Village\IHarvestAreaVillageRepository.cs" />
+    <Compile Include="Core\Harvest_Area_Village\IHarvestAreaVillageService.cs" />
+    <Compile Include="Core\IAreaService.cs" />
+    <Compile Include="Core\CityOverseas\ICityOverseasRepository.cs" />
+    <Compile Include="Core\CityOverseas\ICityOverseasService.cs" />
+    <Compile Include="Core\ConsgineeBuyers\IConsgineeBuyersRepository.cs" />
+    <Compile Include="Core\ConsgineeBuyers\IConsgineeBuyersService.cs" />
+    <Compile Include="Core\CountryOverseas\ICountryOverseasService.cs" />
+    <Compile Include="Core\CountryOverseas\ICountyOverseasRepository.cs" />
+    <Compile Include="Core\Crops\ICropRateRepository.cs" />
+    <Compile Include="Core\IDepartmentRepository.cs" />
+    <Compile Include="Core\IDepartmentService.cs" />
+    <Compile Include="Core\IDesignationRepository.cs" />
+    <Compile Include="Core\IDesignationService.cs" />
+    <Compile Include="Core\District\IDistrictRepository.cs" />
+    <Compile Include="Core\District\IDistrictService.cs" />
+    <Compile Include="Core\IEmployeeRepository.cs" />
+    <Compile Include="Core\IEmployeeService.cs" />
+    <Compile Include="Core\FarmersAgreement\IFarmersAgreementRepository.cs" />
+    <Compile Include="Core\FarmersAgreement\IFarmersAgreementService.cs" />
+    <Compile Include="Core\FarmersAgreement\IFarmersAgreementSizeRepository.cs" />
+    <Compile Include="Core\FarmersAgreement\IFarmersAgreementSizeService.cs" />
+    <Compile Include="Core\Organisation\IOrganisationRepository.cs" />
+    <Compile Include="Core\Organisation\IOrganisationService.cs" />
+    <Compile Include="Core\Place\IPlaceRepository.cs" />
+    <Compile Include="Core\Product-Grade\IProductDetailsRepository.cs" />
+    <Compile Include="Core\Product-Grade\IProductDetailsService.cs" />
+    <Compile Include="Core\IRmStockDetailsRepository.cs" />
+    <Compile Include="Core\IRMStockService.cs" />
+    <Compile Include="Core\ISkillInformationService.cs" />
+    <Compile Include="Core\ISkillsInformationRepository.cs" />
+    <Compile Include="Core\StateOverseas\IStateOverseasRepository.cs" />
+    <Compile Include="Core\StateOverseas\IStateOverseasService.cs" />
+    <Compile Include="Core\State\IStateRepository.cs" />
+    <Compile Include="Core\State\IStateService.cs" />
+    <Compile Include="Core\ISubDepartmentRepository.cs" />
+    <Compile Include="Core\ISubDepartmentService.cs" />
+    <Compile Include="Core\ISupplierDetailsRepository.cs" />
+    <Compile Include="Core\ISupplierDetailsService.cs" />
+    <Compile Include="Core\IOrganisationOfficeLocationDetialsRepository.cs" />
+    <Compile Include="Models\CullingDetails\GreensCullingBarrelsWeightDetails.cs" />
+    <Compile Include="Models\CullingDetails\GreensCullingInwardDetails.cs" />
+    <Compile Include="Models\DailyInputAndFeedingDetails\DailyInputModel.cs" />
+    <Compile Include="Models\DailyInputAndFeedingDetails\FarmerInputConAndMatIssueModel.cs" />
+    <Compile Include="Models\DailyInputAndFeedingDetails\FarmerInputConsumptionModel.cs" />
+    <Compile Include="Models\DailyInputAndFeedingDetails\HBOMPackagePracticeDivision.cs" />
+    <Compile Include="Models\DailyInputAndFeedingDetails\InputIssuesGridModel.cs" />
+    <Compile Include="Models\DailyInputAndFeedingDetails\InputIssuesModel.cs" />
+    <Compile Include="Models\Employee\EmployeeBankAccountDetails.cs" />
+    <Compile Include="Models\Employee\EmployeeBankDetailsMaster.cs" />
+    <Compile Include="Models\ESICRate\ESICRate.cs" />
+    <Compile Include="Models\GradingWeight\GreensGradingQuantityDetails.cs" />
+    <Compile Include="Models\GreenReception\CreateQualityCheckAndInspection.cs" />
+    <Compile Include="Models\GreenReception\GreenInwardsDetail.cs" />
+    <Compile Include="Models\GreenReception\GreensReceptionDetail.cs" />
+    <Compile Include="Models\GreenReception\OrganisationOfficeLocUnit.cs" />
+    <Compile Include="Models\GRNAndMaterialClassification\GreensReceivedDetail.cs" />
+    <Compile Include="Models\GRNAndMaterialClassification\HarvestGRNMaterialDetail.cs" />
+    <Compile Include="Models\GRNAndMaterialClassification\HarvestGRN.cs" />
+    <Compile Include="Models\GRNAndMaterialClassification\HarvestGRNCrate.cs" />
+    <Compile Include="Models\GRNAndMaterialClassification\HarvestGRNFarmer.cs" />
+    <Compile Include="Models\HarvestDetailsWeightment\HarvestGRNIMWeightDetails.cs" />
+    <Compile Include="Models\HarvestDetailsWeightment\HarvestGRNInwardMaterialDetails.cs" />
+    <Compile Include="Models\InputTransferDetails\SaveStockAndBatchDetail.cs" />
+    <Compile Include="Models\InputTransferDetails\StockAndBatchDetail.cs" />
+    <Compile Include="Models\MediaBatchDetails\BatchProdDetailModel.cs" />
+    <Compile Include="Models\MediaBatchDetails\BatchSchOrdProdModel.cs" />
+    <Compile Include="Models\MediaBatchDetails\EmployeeIdAndName.cs" />
+    <Compile Include="Models\MediaBatchDetails\GetMediaMaterialDetailsParams.cs" />
+    <Compile Include="Models\MediaBatchDetails\MediaBatchMaterialDetails.cs" />
+    <Compile Include="Models\MediaBatchDetails\MediaBatchProductionDetails.cs" />
+    <Compile Include="Models\MediaBatchDetails\MediaMaterialDetails.cs" />
+    <Compile Include="Models\MediaBatchDetails\MediaProcessNameList.cs" />
+    <Compile Include="Models\MediaBatchDetails\OrgOfficeNameList.cs" />
+    <Compile Include="Models\MediaBatchDetails\PendingOrder.cs" />
+    <Compile Include="Models\MediaBatchDetails\SelectedPendingOrder.cs" />
+    <Compile Include="Models\MediaBatchDetails\PendingOrderScheduleGrid.cs" />
+    <Compile Include="Models\MediaBatchDetails\UnitAndMediaFilter.cs" />
+    <Compile Include="Models\ProductionScheduleDetails\DirectProductionSchedule.cs" />
+    <Compile Include="Models\ProductionScheduleDetails\SalesProductionSchedule.cs" />
+    <Compile Include="Models\ProfessionalTaxRates\ProfessionalTax.cs" />
+    <Compile Include="Models\ProfessionalTaxRates\ProfessionalTaxMaster.cs" />
+    <Compile Include="Models\ProfessionalTaxRates\ProfessionalTaxSlabsDetail.cs" />
+    <Compile Include="Models\ProvidentFund\ProvidentFundRateDetails.cs" />
+    <Compile Include="Models\ShiftDetails\ShiftDetailMaster.cs" />
+    <Compile Include="Models\ShiftDetails\ShiftStatusDetail.cs" />
+    <Compile Include="Models\SupplierDetailsDTO.cs" />
+    <Compile Include="Repository\AdvanceCashIssuedToFarmers\AdvCashIssuedToFarmrRepository.cs" />
+    <Compile Include="Repository\AgentsGreensRecWeighment\AgentsGreensReceivingWeighmentRepository.cs" />
+    <Compile Include="Repository\AttendanceDetails\AttendanceRepository.cs" />
+    <Compile Include="Repository\BuyingStaffDetails\BuyingStaffDetailsRepository.cs" />
+    <Compile Include="Repository\CullingDetails\CullingDetailsRepository.cs" />
+    <Compile Include="Repository\DailyHarvestDetails\DailyHarvestRepository.cs" />
+    <Compile Include="Repository\DriverDetailRepository\DriverDetailRepository.cs" />
+    <Compile Include="Core\DriverDetail\IDriverDetailRepository.cs" />
+    <Compile Include="Repository\DriverDocumentRepository\DriverDocumentRepository.cs" />
+    <Compile Include="Repository\Employee\EmployeeBankDetailsMasterRepository.cs" />
+    <Compile Include="Repository\FarmerAccountDetailsFinalization\FarmerAccountDetailsFinalizationRepository.cs" />
+    <Compile Include="Repository\FarmersInputRatesSeasonWise\FarmersInputRatesSeasonWiseRepository.cs" />
+    <Compile Include="Repository\ESIC\ESICRepository.cs" />
+    <Compile Include="Repository\FarmersInputReturns\FarmersInputReturnsRepository.cs" />
+    <Compile Include="Repository\FinishedSFOpeningStockDetails\FinishedSFOpeningStockRepository.cs" />
+    <Compile Include="Repository\GradingWeight\GradingWeightRepository.cs" />
+    <Compile Include="Repository\BatchProduction\BatchProductionPreparationRepository.cs" />
+    <Compile Include="Repository\GreenReception\GreenReceptionQualityRepository.cs" />
+    <Compile Include="Models\Harvest_Area\HarvestAreaVillageDetail.cs" />
+    <Compile Include="Repository\GreensAgentSupplierDetails\GreensAgentSupplierDetailsRepository.cs" />
+    <Compile Include="Repository\GreensTransportVehicleSchedules\GreensTransportVehicleScheduleRepository.cs" />
+    <Compile Include="Repository\GRNAndMaterialClassification\HarvestGRNCrateRepository.cs" />
+    <Compile Include="Repository\GRNAndMaterialClassification\HarvestGRNFarmerRepository.cs" />
+    <Compile Include="Repository\GRNAndMaterialClassification\HarvestGRNRepository.cs" />
+    <Compile Include="Models\Employee\EmployeeWithDeptSkillsAndDesignation.cs" />
+    <Compile Include="Models\GreenReception\GreenReceptionQualityCheck.cs" />
+    <Compile Include="Models\GreenReception\GreenReceptionQualityDetails.cs" />
+    <Compile Include="Models\HarvestDetailsWeightment\HarvestGRNInwardDetails.cs" />
+    <Compile Include="Repository\HarvestDetailsWeightment\HarvestGRNWeightmentDetailsRepository.cs" />
+    <Compile Include="Repository\InputToFieldStaff\InputToFieldStaffRepository.cs" />
+    <Compile Include="Repository\LoansAndAdvancesDetails\LoansAdvancesRepository.cs" />
+    <Compile Include="Repository\ManualAttendence\ManualAttendenceDetailsRepository.cs" />
+    <Compile Include="Repository\ManualAttendence\ManualAttendenceMasterRepository.cs" />
+    <Compile Include="Repository\MaterialIndentByDepartment\StoreInternalIndentDetailRepository.cs" />
+    <Compile Include="Repository\MaterialIndentByDepartment\StoreInternalIndentMasterRepository.cs" />
+    <Compile Include="Repository\MediaBatchDetails\InterfaceRepository.cs" />
+    <Compile Include="Repository\MediaBatchDetails\MediaBatchRepository.cs" />
+    <Compile Include="Repository\MediaProcessDetail\MediaProcessDetailsRepository.cs" />
+    <Compile Include="Repository\Place\PlaceRepository.cs" />
+    <Compile Include="Core\Villages\IVillageRepository.cs" />
+    <Compile Include="Core\Villages\IVillageService.cs" />
+    <Compile Include="DTO\ConsgineeBuyersDto\ConsgineeBuyersDto.cs" />
+    <Compile Include="DTO\Crop\CropDto.cs" />
+    <Compile Include="DTO\Crop\CropGroupDto.cs" />
+    <Compile Include="DTO\CropRateDTO\CropRateDTO.cs" />
+    <Compile Include="DTO\Crop\CropSchemeDto.cs" />
+    <Compile Include="DTO\ConsgineeBuyersDto\DcoumentUplodDto.cs" />
+    <Compile Include="DTO\EmployeeDTO.cs" />
+    <Compile Include="DTO\ProductGradeDto\GradeDto.cs" />
+    <Compile Include="DTO\OrganisationOfficeLocationDetailsDto.cs" />
+    <Compile Include="DTO\PlantationScheduleDto.cs" />
+    <Compile Include="DTO\ProductGradeDto\ProductVarietyDto.cs" />
+    <Compile Include="DTO\RMStock\RMStockDetailsDto.cs" />
+    <Compile Include="DTO\RMStock\RMStockLotDetailsDto.cs" />
+    <Compile Include="DTO\SchemeDto.cs" />
+    <Compile Include="Entities\OrganisationOfficeLocationDetails.cs" />
+    <Compile Include="Models\CropsRate\AreaName.cs" />
+    <Compile Include="Models\CountryDetail.cs" />
+    <Compile Include="Models\CropsRate\CropAssociationAndUOMRate.cs" />
+    <Compile Include="Models\DailyInputAndFeedingDetails\FarmersInputConsumptionDetails.cs" />
+    <Compile Include="Models\DailyInputAndFeedingDetails\FarmersMaterialIssueDetails.cs" />
+    <Compile Include="Models\Districts\DistrictDetail.cs" />
+    <Compile Include="Models\Farmers\FarmersDetail.cs" />
+    <Compile Include="Models\DailyInputAndFeedingDetails\CountryName.cs" />
+    <Compile Include="Models\DailyInputAndFeedingDetails\DistrictName.cs" />
+    <Compile Include="Models\DailyInputAndFeedingDetails\EmployeeName.cs" />
+    <Compile Include="Models\DailyInputAndFeedingDetails\FarmerAgreementDetails.cs" />
+    <Compile Include="Models\DailyInputAndFeedingDetails\MandalDetails.cs" />
+    <Compile Include="Models\DailyInputAndFeedingDetails\MandalName.cs" />
+    <Compile Include="Models\DailyInputAndFeedingDetails\StateName.cs" />
+    <Compile Include="Models\DailyInputAndFeedingDetails\VillageName.cs" />
+    <Compile Include="DTO\FeedInputTransfer\OutwardGatePassDetailsDto.cs" />
+    <Compile Include="DTO\FeedInputTransfer\RMInputMaterialTransDetailsDto.cs" />
+    <Compile Include="DTO\FeedInputTransfer\RMInputTransferDetailsDto.cs" />
+    <Compile Include="Models\FieldStaffDetails\FieldStaffDetails.cs" />
+    <Compile Include="Models\Employee\EmployeePayment.cs" />
+    <Compile Include="Models\GoodsReceiptNote\InwardDetail.cs" />
+    <Compile Include="Models\GoodsReceiptNote\OrderDetail.cs" />
+    <Compile Include="Models\GoodsReceiptNote\PendingPurchaseOrder.cs" />
+    <Compile Include="Models\GoodsReceiptNote\RMGRNDetail.cs" />
+    <Compile Include="Models\GoodsReceiptNote\RMGRNMaterialDetail.cs" />
+    <Compile Include="Models\GRPAndroid\ProdProcessBOM\GradeModel.cs" />
+    <Compile Include="Models\GRPAndroid\ProdProcessBOM\GroupAndVarietyCode.cs" />
+    <Compile Include="Models\GRPAndroid\ProdProcessBOM\MediaProcessDetails.cs" />
+    <Compile Include="Models\GRPAndroid\ProdProcessBOM\ProdGroupCode.cs" />
+    <Compile Include="Models\GRPAndroid\ProdProcessBOM\ProdProcessCombinedModel.cs" />
+    <Compile Include="Models\GRPAndroid\ProdProcessBOM\ProductionProcessDetails.cs" />
+    <Compile Include="Models\GRPAndroid\ProdProcessBOM\ProductionProcessDetailsModel.cs" />
+    <Compile Include="Models\GRPAndroid\ProdProcessBOM\ProductionProcessMaterialDetails.cs" />
+    <Compile Include="Models\GRPAndroid\ProdProcessBOM\ProductionStandardBOM.cs" />
+    <Compile Include="Models\GRPAndroid\ProdProcessBOM\RawMaterialDetailModel.cs" />
+    <Compile Include="Models\GRPAndroid\ProdProcessBOM\RawMaterialGroupModel.cs" />
+    <Compile Include="Models\GRPAndroid\ProdProcessBOM\VarietyModel.cs" />
+    <Compile Include="Models\HarvestDetails\HarvestFarmersDetails.cs" />
+    <Compile Include="Models\HarvestDetails\HarvestProcurementDetails.cs" />
+    <Compile Include="Models\HarvestDetails\HarvestCratewiseDetails.cs" />
+    <Compile Include="Models\HarvestDetails\HarvestGradewiseDetails.cs" />
+    <Compile Include="Models\HarvestStage\HarvestStageDetailsModel.cs" />
+    <Compile Include="Models\HarvestStage\HarvestStageMasterModel.cs" />
+    <Compile Include="Models\InputTransferDetails\InputTransferDetails.cs" />
+    <Compile Include="Models\Login\LoginDto.cs" />
+    <Compile Include="Models\Login\LoginResponseDto.cs" />
+    <Compile Include="Models\Login\User.cs" />
+    <Compile Include="Models\MaterialOutward\MaterialOutwardDetails.cs" />
+    <Compile Include="Models\Mandals\Mandal.cs" />
+    <Compile Include="Models\Mandals\MandalDetail.cs" />
+    <Compile Include="Models\OverseasModel\CityOverseas.cs" />
+    <Compile Include="Models\ConsigneeBuyersModel\ConsigneeBuyersDetails.cs" />
+    <Compile Include="Models\OverseasModel\CountryOverseas.cs" />
+    <Compile Include="Models\CropsRate\CropCount.cs" />
+    <Compile Include="Models\CropsRate\CropFromTo.cs" />
+    <Compile Include="Models\Crops\CropGroup.cs" />
+    <Compile Include="Models\Crops\CropName.cs" />
+    <Compile Include="Models\ConsigneeBuyersModel\Currency.cs" />
+    <Compile Include="Models\Department\Department.cs" />
+    <Compile Include="Models\Designation\Designation.cs" />
+    <Compile Include="Models\ConsigneeBuyersModel\DocumentUpload.cs" />
+    <Compile Include="Models\Employee\Employee.cs" />
+    <Compile Include="Models\Employee\EmployeeDocument.cs" />
+    <Compile Include="Models\Farmers\Farmer.cs" />
+    <Compile Include="Models\Farmers\FarmerDocument.cs" />
+    <Compile Include="Models\CropsRate\FruitSizeCount.cs" />
+    <Compile Include="Models\FarmersAgreement\FarmersAgreement.cs" />
+    <Compile Include="Models\FarmersAgreement\FarmersAgreementDetail.cs" />
+    <Compile Include="Models\FarmersAgreement\FarmersAgreementSizeDetail.cs" />
+    <Compile Include="Models\PackageOfPracticeModel\PackagePracticeDivision.cs" />
+    <Compile Include="Models\PackageOfPracticeModel\PackagePracticeMaster.cs" />
+    <Compile Include="Models\PackageOfPracticeModel\PackagePracticeMaterials.cs" />
+    <Compile Include="Models\ProductGradeModel\GradeDetails.cs" />
+    <Compile Include="Models\CropsRate\GroupCode.cs" />
+    <Compile Include="Entities\RawMaterial\RawMaterialDetails.cs" />
+    <Compile Include="Entities\RawMaterial\RawMaterialMaster.cs" />
+    <Compile Include="Entities\RMStock\RMStockDetails.cs" />
+    <Compile Include="Entities\RMStock\RMStockLotDetails.cs" />
+    <Compile Include="Models\Management.cs" />
+    <Compile Include="Models\OfficeLocation.cs" />
+    <Compile Include="Models\Organisation.cs" />
+    <Compile Include="Models\Place.cs" />
+    <Compile Include="Models\Plantation\PlantationSchedule.cs" />
+    <Compile Include="Models\ProductGradeModel\ProductDetails.cs" />
+    <Compile Include="Models\ProductGradeModel\ProductGroup.cs" />
+    <Compile Include="Models\ProductionScheduleDetails\ProductionScheduleDetails.cs" />
+    <Compile Include="Models\ProformaInvoiceModel\ProductionDetails.cs" />
+    <Compile Include="Models\ProformaInvoiceModel\ProformaInvoice.cs" />
+    <Compile Include="Models\ProformaInvoiceModel\ProformaInvoiceDetails.cs" />
+    <Compile Include="Models\PurchageMgmt\BranchIndentDetail.cs" />
+    <Compile Include="Models\PurchageMgmt\BranchIndentMaterialsDetail.cs" />
+    <Compile Include="Models\PurchageMgmt\IndentDetail.cs" />
+    <Compile Include="Models\PurchageMgmt\OutwardGatePassDetail.cs" />
+    <Compile Include="Models\PurchageMgmt\PurchageReceivedDetail.cs" />
+    <Compile Include="Models\PurchageMgmt\PurchageReturnDetail.cs" />
+    <Compile Include="Models\PurchageMgmt\PurchageReturnMaterialDetail.cs" />
+    <Compile Include="Models\PurchageMgmt\PurchaseOrderDetail.cs" />
+    <Compile Include="Models\PurchageMgmt\PurchaseReceivedMaterialDetail.cs" />
+    <Compile Include="Models\PurchageMgmt\RawMaterialDetail.cs" />
+    <Compile Include="Models\PurchageMgmt\RMInputMaterialTransferDetail.cs" />
+    <Compile Include="Models\PurchageMgmt\RMMaterialTotalCostDetail.cs" />
+    <Compile Include="Models\PurchageMgmt\RMPOIndentDetail.cs" />
+    <Compile Include="Models\PurchageMgmt\RMPOMaterialCondition.cs" />
+    <Compile Include="Models\PurchageMgmt\RMPOMaterialDetail.cs" />
+    <Compile Include="Models\PurchageMgmt\RowMaterialGroupMaster.cs" />
+    <Compile Include="Models\PurchageMgmt\TaxPercentageRate.cs" />
+    <Compile Include="Models\Skills\SkillInformation.cs" />
+    <Compile Include="Models\RMStock\RMStockBranchDetailsModel.cs" />
+    <Compile Include="Models\RMStock\RMStockBranchQuantityModel.cs" />
+    <Compile Include="Models\OverseasModel\StateOverseas.cs" />
+    <Compile Include="Models\RMStock\RMStockLotDetailsModel.cs" />
+    <Compile Include="Models\Department\SubDepartment.cs" />
+    <Compile Include="Models\SupplierDocumentDetails.cs" />
+    <Compile Include="Models\Villages\VillageDetail.cs" />
+    <Compile Include="Repository\BankAccount\BankAccountDetailsRepository.cs" />
+    <Compile Include="Models\CropsRate\VillageName.cs" />
+    <Compile Include="Repository\Accounts_Master\AccountMasterRepository.cs" />
+    <Compile Include="Repository\Accounts_Master\AccountsGroupRepository.cs" />
+    <Compile Include="Models\User\MainMenu.cs" />
+    <Compile Include="Models\User\ModuleMenu.cs" />
+    <Compile Include="Repository\BranchIndent\BranchIndentRepository.cs" />
+    <Compile Include="Repository\Contractor\ContractorRepository.cs" />
+    <Compile Include="Repository\DailyInputAndFeedingDetails\DailyInputRepository.cs" />
+    <Compile Include="Repository\FeedInputTransfer\FeedInputTransferRepository.cs" />
+    <Compile Include="Repository\DailyInputAndFeedingDetails\InputIssuesRepository.cs" />
+    <Compile Include="Repository\FieldStaffDetails\FieldStaffDetailsRepository.cs" />
+    <Compile Include="Repository\GRPAndroid\ProdProcessBOM\ProdProcessBOMRepository.cs" />
+    <Compile Include="Repository\GoodsReceiptNote\GRNMaterialRepository.cs" />
+    <Compile Include="Repository\GoodsReceiptNote\GRNRepository.cs" />
+    <Compile Include="Repository\GoodsReceiptNote\MaterialTotalCostRepository.cs" />
+    <Compile Include="Repository\HarvestDetails\HarvestDetailsRepository.cs" />
+    <Compile Include="Repository\HarvestStage\HarvestStageRepository.cs" />
+    <Compile Include="Repository\Login\LoginDetailsRepository.cs" />
+    <Compile Include="Repository\Mandals\MandalRepository.cs" />
+    <Compile Include="Repository\MaterialInward\MaterialInwardRepository.cs" />
+    <Compile Include="Repository\MaterialReceivedDetail\AreaMaterialReceivedDetailRepository.cs" />
+    <Compile Include="Repository\MaterialReceivedDetail\AreaMRInwardRepository.cs" />
+    <Compile Include="Repository\OverseasRepository\CityOverseasRepository.cs" />
+    <Compile Include="Repository\ConsigneeBuyersRepositroy\ConsgineeBuyersRepository.cs" />
+    <Compile Include="Repository\OverseasRepository\CountryOverseasRepository.cs" />
+    <Compile Include="Repository\CountryRepository.cs" />
+    <Compile Include="Repository\Department\DepartmentRepository.cs" />
+    <Compile Include="Repository\Designation\DesignationRepository.cs" />
+    <Compile Include="Repository\DistrictRepository.cs" />
+    <Compile Include="Repository\Employee\EmployeeRepository.cs" />
+    <Compile Include="Repository\FarmersAgreement\FarmersAgreementRepository.cs" />
+    <Compile Include="Repository\FarmersAgreement\FarmersAgreementSizeRepository.cs" />
+    <Compile Include="Repository\Farmers\FamrerRepository.cs" />
+    <Compile Include="Repository\HarvestAreaAndVillage\HarvestAreaRepository.cs" />
+    <Compile Include="Repository\HarvestAreaAndVillage\HarvestAreaVillageRepository.cs" />
+    <Compile Include="Repository\OrganisationOfficeLocationDetialsRepository.cs" />
+    <Compile Include="Repository\OverseasRepository\CurrencyRepository.cs" />
+    <Compile Include="Repository\Organisation\OrganisationRepository.cs" />
+    <Compile Include="Repository\PackageOfPracticesRepository\PackageofPracticeRepository.cs" />
+    <Compile Include="Repository\ProductGradeRepository\ProductRepository.cs" />
+    <Compile Include="Repository\ProfessionalTaxRates\ProfessionalTaxMasterRepository.cs" />
+    <Compile Include="Repository\ProfessionalTaxRates\ProfessionalTaxSalbRepository.cs" />
+    <Compile Include="Repository\ProformaInvoiceDetails\ProformaInvoiceDetailsRepository.cs" />
+    <Compile Include="Repository\ProvidentFund\ProvidentFundRateDetailsRepository.cs" />
+    <Compile Include="Repository\PurchaseMgmt\PurchaseManagementRepository.cs" />
+    <Compile Include="Repository\Reports\DepAndDes\DepartMentAndDesignationRepository.cs" />
+    <Compile Include="Repository\Reports\MonthlyAttendance\MonthlyAttendanceRepository.cs" />
+    <Compile Include="Repository\Reports\DialyAttendance\DialyAttendanceRepository.cs" />
+    <Compile Include="Repository\Reports\DialyGreensReceiving\DialyGreensReceivingRepository.cs" />
+    <Compile Include="Repository\Reports\FarmerWiseSummary\FarmerWiseSummaryRepository.cs" />
+    <Compile Include="Repository\Reports\GreensReceiptsSummary\GreensReceiptsSummaryRepository.cs" />
+    <Compile Include="Repository\Reports\InWardDailyReport\HarvestGRNReportRepository.cs" />
+    <Compile Include="Repository\ScheduleDetail\ScheduleDetailRepository.cs" />
+    <Compile Include="Repository\ShiftDetails\ShiftDetailsRepository.cs" />
+    <Compile Include="Repository\Skills\SkillsInformationRepository.cs" />
+    <Compile Include="Repository\OverseasRepository\StateOverseasRepository.cs" />
+    <Compile Include="Repository\RmStockDetailsRepository.cs" />
+    <Compile Include="Repository\SowingFarming\SowingFarmingRepository.cs" />
+    <Compile Include="Repository\StateRepository.cs" />
+    <Compile Include="Repository\Department\SubDepartmentRepository.cs" />
+    <Compile Include="Repository\StoresMasterDetails\GSCUOMDetailRepository.cs" />
+    <Compile Include="Repository\StoresMasterDetails\GSGroupDetailRepository.cs" />
+    <Compile Include="Repository\StoresMasterDetails\GSMaterialDetailRepository.cs" />
+    <Compile Include="Repository\StoresMasterDetails\GSSubGroupDetailRepository.cs" />
+    <Compile Include="Repository\SupplierDetailsRepository.cs" />
+    <Compile Include="Repository\TransportVehicleManagement\GpsTrackingDeviceRepository.cs" />
+    <Compile Include="Repository\TransportVehicleManagement\HiredTransporterDetailRepository.cs" />
+    <Compile Include="Repository\TransportVehicleManagement\HiredVehicleDetailRepository.cs" />
+    <Compile Include="Repository\TransportVehicleManagement\HiredVehicleDocumentRepository.cs" />
+    <Compile Include="Repository\TransportVehicleManagement\VehicleRepository.cs" />
+    <Compile Include="Repository\VillageRepository.cs" />
+    <Compile Include="Models\RMStock\RMStockDetailsModel.cs" />
+    <Compile Include="Repository\YearlyHolidayDetailsRepository\YearlyHolidayDetailsRepository.cs" />
+    <Compile Include="Request\BranchIndent\BranchIndentInsertRequest.cs" />
+    <Compile Include="Request\FarmerDetailsFilterModel.cs" />
+    <Compile Include="Request\FinishedSFOpeningStockDetails\FinishedSFStockProductDetailsRequest.cs" />
+    <Compile Include="Request\FinishedSFOpeningStockDetails\FinishedSFStockQuantityDetailsRequest.cs" />
+    <Compile Include="Request\FinishedSFOpeningStockDetails\FinishedSFStockQuantityFindRequest.cs" />
+    <Compile Include="Request\GreensAgentSupplierDetails\SupplierInformationDetailsRequest.cs" />
+    <Compile Include="Request\HarvestStage\HarvestStageInsertRequest.cs" />
+    <Compile Include="Request\HumanResource\AttendanceRequestDetails.cs" />
+    <Compile Include="Request\MaterialInward\InsertMaterialInwardRequest.cs" />
+    <Compile Include="Request\RMStock\RMStockBranchInsertRequest.cs" />
+    <Compile Include="Request\RMStock\RMStockInsertRequest.cs" />
+    <Compile Include="Entities\RawMaterial\RMUom.cs" />
+    <Compile Include="Request\SowingFarming\SowingFarmingInsert.cs" />
+    <Compile Include="Request\SupplierDetailsRequest.cs" />
+    <Compile Include="Response\AdvCasIssuedToFarnrResponse.cs" />
+    <Compile Include="Response\BranchIndent\BranchIndentResponse.cs" />
+    <Compile Include="Response\FieldStaffDetailsResponse.cs" />
+    <Compile Include="Response\HarvestStageShowResponse.cs" />
+    <Compile Include="Response\HarvestStage\HarvestStageResponse.cs" />
+    <Compile Include="Response\RMStock\RMBranchShowFormResponse.cs" />
+    <Compile Include="Response\RMStock\RMStockBranchInsertResponse.cs" />
+    <Compile Include="Response\RMStock\RMStockFormInsertResponse.cs" />
+    <Compile Include="Response\RMStock\RMStockFormShowResponse.cs" />
+    <Compile Include="Response\SowingFarming\SowingFarmingDataForFormRequiredForGrid.cs" />
+    <Compile Include="Response\SowingFarming\SowingFarmingFormDataResponse.cs" />
+    <Compile Include="Response\SupplierDetails\SupplierDetailsResponse.cs" />
+    <Compile Include="Service\Accounts_Master\AccountMasterService.cs" />
+    <Compile Include="Service\Accounts_Master\AccountsGroupService.cs" />
+    <Compile Include="Service\AdvanceCashIssuedToFarmers\AdvanceCashIssuedToFarmersService.cs" />
+    <Compile Include="Service\AgentsGreensRecWeighment\AgentsGreensReceivingWeighmentService.cs" />
+    <Compile Include="Service\AreaMaterialReceivedDetail\AreaMaterialReceivedService.cs" />
+    <Compile Include="Service\AreaMaterialReceivedDetail\AreaMRInwardService.cs" />
+    <Compile Include="Service\AreaService.cs" />
+    <Compile Include="Service\AttendanceDetails\AttendanceService.cs" />
+    <Compile Include="Service\BankAccount\BankAccountDetailsService.cs" />
+    <Compile Include="Service\BatchProduction\BatchProductionPreparationService.cs" />
+    <Compile Include="Service\BranchIndent\BranchIndentService.cs" />
+    <Compile Include="Service\BuyingStaffDetails\BuyingStaffDetailsService.cs" />
+    <Compile Include="Service\Contractor\ContractorService.cs" />
+    <Compile Include="Service\CullingDetails\CullingDetailsService.cs" />
+    <Compile Include="Service\DailyHarvestDetails\DailyHarvestService.cs" />
+    <Compile Include="Service\DailyInputAndFeedingDetails\DailyInputService.cs" />
+    <Compile Include="Service\DailyInputAndFeedingDetails\InputIssuesService.cs" />
+    <Compile Include="Service\DriverDetail\DriverDetailService.cs" />
+    <Compile Include="Service\DriverDocument\DriverDocumentService.cs" />
+    <Compile Include="Service\EmployeeBankDetail\EmployeeBankDetailsMasterService.cs" />
+    <Compile Include="Service\FarmerAccountDetailsFinalization\FarmerAccountDetailsFinalizationService.cs" />
+    <Compile Include="Service\FarmersInputRatesSeasonWise\FarmersInputRatesSeasonWiseService.cs" />
+    <Compile Include="Service\ESIC\ESICService.cs" />
+    <Compile Include="Service\FarmersInputReturns\FarmersInputReturnsService.cs" />
+    <Compile Include="Service\Farmers\FarmerService.cs" />
+    <Compile Include="Service\FeedInputTransfer\FeedInputTransferService.cs" />
+    <Compile Include="Service\FieldStaffDetails\FieldStaffDetailsService.cs" />
+    <Compile Include="Service\FinishedSFOpeningStockDetails\FinishedSFOpeningStockService.cs" />
+    <Compile Include="Service\GradingWeight\GradingWeightService.cs" />
+    <Compile Include="Service\GreenReception\GreenReceptionQualityService.cs" />
+    <Compile Include="Service\GreensAgentSupplierDetails\GreensAgentSupplierDetailsService.cs" />
+    <Compile Include="Service\GreensTransportVehicleSchedules\GreensTransportVehicleScheduleService.cs" />
+    <Compile Include="Service\GRNAndMaterialClassification\HarvestGRNCrateService.cs" />
+    <Compile Include="Service\GRNAndMaterialClassification\HarvestGRNFarmerService.cs" />
+    <Compile Include="Service\GRNAndMaterialClassification\HarvestGRNService.cs" />
+    <Compile Include="Service\GRPAndroid\ProdProcessBOM\ProdProcessBOMService.cs" />
+    <Compile Include="Service\GoodsReceiptNote\GRNMaterialService.cs" />
+    <Compile Include="Service\GoodsReceiptNote\GRNService.cs" />
+    <Compile Include="Service\GoodsReceiptNote\MaterialTotalCostService.cs" />
+    <Compile Include="Service\HarvestAreaAndVillage\HarvestAreaService.cs" />
+    <Compile Include="Service\HarvestAreaAndVillage\HarvestAreaVillageService.cs" />
+    <Compile Include="Service\HarvestDetailsWeightment\HarvestGRNWeightmentDetailsService.cs" />
+    <Compile Include="Service\HarvestDetails\HarvestDetailsService.cs" />
+    <Compile Include="Service\InputToFieldStaff\InputToFieldStaffService.cs" />
+    <Compile Include="Service\LoansAndAdvancesDetails\LoansAdvancesService.cs" />
+    <Compile Include="Service\Login\LoginService.cs" />
+    <Compile Include="Service\Mandals\MandalService.cs" />
+    <Compile Include="Service\ManualAttendence\ManualAttendenceService.cs" />
+    <Compile Include="Service\MaterialIndentByDepartment\StoreInternalIndentDetailService.cs" />
+    <Compile Include="Service\MaterialIndentByDepartment\StoreInternalIndentMasterService.cs" />
+    <Compile Include="Service\MaterialInward\MaterialInwardService.cs" />
+    <Compile Include="Service\MediaBatchDetails\InterfaceService.cs" />
+    <Compile Include="Service\MediaBatchDetails\MediaBatchService.cs" />
+    <Compile Include="Service\MediaProcessDetail\MediaProcessDetailsService.cs" />
+    <Compile Include="Service\MonthlyAttendance\MonthlyAttendanceService.cs" />
+    <Compile Include="Service\OverseasService\CityOverseasService.cs" />
+    <Compile Include="Service\OrganisationService\OrganisationService.cs" />
+    <Compile Include="Service\ConsigneeBuyersService\ConsgineeBuyersService.cs" />
+    <Compile Include="Service\OverseasService\CountryOverseasService.cs" />
+    <Compile Include="Service\CountryService.cs" />
+    <Compile Include="Service\Department\DepartmentService.cs" />
+    <Compile Include="Service\Designation\DesignationService.cs" />
+    <Compile Include="Service\DistrictService.cs" />
+    <Compile Include="Service\Employee\EmployeeService.cs" />
+    <Compile Include="Service\FarmersAgreement\FarmersAgreementService.cs" />
+    <Compile Include="Service\FarmersAgreement\FarmersAgreementSizeService.cs" />
+    <Compile Include="Service\OverseasService\CurrencyService.cs" />
+    <Compile Include="Service\PackageofPracticeService\PackagePracticeService.cs" />
+    <Compile Include="Service\Product-GradeService\ProductService.cs" />
+    <Compile Include="Service\ProfessionalTaxRates\ProfessionalTaxMasterService.cs" />
+    <Compile Include="Service\ProfessionalTaxRates\ProfessionalTaxSlabService.cs" />
+    <Compile Include="Service\ProvidentFund\ProvidentFundRateDetailsService.cs" />
+    <Compile Include="Service\PurchaseMgmt\PurchaseManagementService.cs" />
+    <Compile Include="Service\RawMaterialService.cs" />
+    <Compile Include="Service\RMStockService.cs" />
+    <Compile Include="Service\ScheduleDetail\ScheduleDetailService.cs" />
+    <Compile Include="Service\ShiftDetails\ShiftDetailsService.cs" />
+    <Compile Include="Service\Skills\SkillInformationService.cs" />
+    <Compile Include="Service\OverseasService\StateOverseasService.cs" />
+    <Compile Include="Service\SowingFarmingService.cs" />
+    <Compile Include="Service\StateService.cs" />
+    <Compile Include="Service\Department\SubdepartmentService.cs" />
+    <Compile Include="Models\CropsRate\CropAssociationRate.cs" />
+    <Compile Include="Models\CropsRate\CropRate.cs" />
+    <Compile Include="Repository\CropRateRepository\CropRateRepository.cs" />
+    <Compile Include="Service\StoresMasterDetails\GSCUOMDetailService.cs" />
+    <Compile Include="Service\StoresMasterDetails\GSGroupDetailService.cs" />
+    <Compile Include="Service\StoresMasterDetails\GSMaterialDetailService.cs" />
+    <Compile Include="Service\StoresMasterDetails\GSSubGroupDetailService.cs" />
+    <Compile Include="Service\SupplierDetailsService.cs" />
+    <Compile Include="Controllers\RawMaterialController.cs" />
+    <Compile Include="Controllers\SupplierDetailsController.cs" />
+    <Compile Include="Core\IAccountManagementRepository.cs" />
+    <Compile Include="Core\IAccountManagementService.cs" />
+    <Compile Include="Core\IAccountRepository.cs" />
+    <Compile Include="Core\IAreaRepository.cs" />
+    <Compile Include="Core\Crops\ICropRepository.cs" />
+    <Compile Include="Core\Crops\ICropService.cs" />
+    <Compile Include="Core\ICustomerRepository.cs" />
+    <Compile Include="Core\IPlantationHarvestRepository.cs" />
+    <Compile Include="Core\IPlantationHarvestService.cs" />
+    <Compile Include="Core\IRawMaterialRepository.cs" />
+    <Compile Include="Core\IRawMaterialService.cs" />
+    <Compile Include="Core\IRepositoryWrapper.cs" />
+    <Compile Include="DTO\RawMaterialDetailsDto.cs" />
+    <Compile Include="DTO\RawMaterialMasterDto.cs" />
+    <Compile Include="CutsomExceptions\CustomException.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Account.cs" />
+    <Compile Include="Models\Area.cs" />
+    <Compile Include="Service\TransportVehicleManagement\GpsTrackingDeviceService.cs" />
+    <Compile Include="Service\TransportVehicleManagement\HiredTransporterDetailService.cs" />
+    <Compile Include="Service\TransportVehicleManagement\HiredVehicleDetailService.cs" />
+    <Compile Include="Service\TransportVehicleManagement\HiredVehicleDocumentService.cs" />
+    <Compile Include="Service\TransportVehicleManagement\VehicleService.cs" />
+    <Compile Include="Service\YearlyHolidayDetailsService\YearlyHolidayDetailsService.cs" />
+    <Compile Include="Utilities\CredentialHash.cs" />
+    <Compile Include="Utilities\ExceptonLog.cs" />
+    <Compile Include="Utilities\Extensions.cs" />
+    <Compile Include="Utilities\ApiResponse.cs" />
+    <Compile Include="Utilities\TokenManager.cs" />
+    <Compile Include="ValidateModel\CheckModelForNullAttribute.cs" />
+    <Compile Include="ValidateModel\ValidateModelStateAttribute.cs" />
+    <Compile Include="Entities\RMStock\RMStockBranchDetails.cs" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Compile Include="Models\Country.cs" />
+    <Compile Include="Models\Crops\Crop.cs" />
+    <Compile Include="Models\Crops\CropScheme.cs" />
+    <Compile Include="Models\UserPermissions\Customer.cs" />
+    <Compile Include="Models\District.cs" />
+    <Compile Include="Models\HarvestArea.cs" />
+    <Compile Include="Models\HarvestAreaVillage.cs" />
+    <Compile Include="Models\State.cs" />
+    <Compile Include="Models\SupplierDetails.cs" />
+    <Compile Include="Models\Village.cs" />
+    <Compile Include="Models\UserPermissions\PermissionsDTO.cs" />
+    <Compile Include="Models\User\Submenu.cs" />
+    <Compile Include="Models\UserPermissions\UserPermissions.cs" />
+    <Compile Include="Persistence\AccountManagementDBContext.cs" />
+    <Compile Include="Persistence\RepositoryContext.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\AccountManagementRepository.cs" />
+    <Compile Include="Repository\AccountRepository.cs" />
+    <Compile Include="Repository\AreaRepository.cs" />
+    <Compile Include="Repository\CropsRepository\CropRepository.cs" />
+    <Compile Include="Repository\CustomerRepository.cs" />
+    <Compile Include="Core\IRepositoryBase.cs" />
+    <Compile Include="Repository\Plantation\PlantationHarvestRepository.cs" />
+    <Compile Include="Repository\RawMaterialRepository.cs" />
+    <Compile Include="Repository\RepositoryBase.cs" />
+    <Compile Include="Repository\RepositoryWrapper.cs" />
+    <Compile Include="Request\RawMaterialDetailsRequest.cs" />
+    <Compile Include="Request\RawMaterialMasterCreateRequest.cs" />
+    <Compile Include="Response\BoolResponse.cs" />
+    <Compile Include="Service\AccountManagementService.cs" />
+    <Compile Include="Service\CropService\CropService.cs" />
+    <Compile Include="Service\HarvestPlantationService.cs" />
+    <Compile Include="Service\VillageService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="favicon.ico" />
+    <Content Include="GherkinWebAPI\DBScripts\Tables\Gherkin_MenuTables.sql" />
+    <Content Include="GherkinWebAPI\DBScripts\USP_InsertRawMaterialDetails.sql" />
+    <Content Include="GherkinWebAPI\DBScripts\USP_InsertRawMaterialMaster.sql" />
+    <Content Include="Global.asax" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="DTO\GRPAndroid\ProdProcessBOM\" />
+    <Folder Include="Response\FeedInputTransfer\" />
+    <Folder Include="Views\AdvanceCashIssuedToFarmers\" />
+    <Folder Include="Views\AgentsGreensReceivingWeighment\" />
+    <Folder Include="Views\GreensAgentSupplier\" />
+    <Folder Include="Views\GreensReceiptsSummary\" />
+    <Folder Include="Views\MonthlyAttendanceReport\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="NLog.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="packages.config" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>65506</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:44371/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>
